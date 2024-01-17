@@ -21,7 +21,7 @@ exports.createSubSection = async (req, res) => {
     // Upload the video file to Cloudinary
     const uploadDetails = await uploadImageToCloudinary(
       video,
-      process.env.FOLDER_NAME
+      `${process.env.FOLDER_NAME}`
     )
     console.log(uploadDetails)
     // Create a new sub-section with the necessary information
@@ -75,7 +75,7 @@ exports.updateSubSection = async (req, res) => {
       const video = req.files.video
       const uploadDetails = await uploadImageToCloudinary(
         video,
-        process.env.FOLDER_NAME
+        `${process.env.FOLDER_NAME}`
       )
       subSection.videoUrl = uploadDetails.secure_url
       subSection.timeDuration = `${uploadDetails.duration}`
