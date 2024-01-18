@@ -15,9 +15,62 @@ import InstructorSection from "../components/core/HomePage/InstructorSection"
 import LearningLanguageSection from "../components/core/HomePage/LearningLanguageSection"
 import TimelineSection from "../components/core/HomePage/Timeline"
 
+// background random images
+import backgroundImg1 from '../assets/Images/random bg img/coding bg1.jpg'
+import backgroundImg2 from '../assets/Images/random bg img/coding bg2.jpg'
+import backgroundImg3 from '../assets/Images/random bg img/coding bg3.jpg'
+import backgroundImg4 from '../assets/Images/random bg img/coding bg4.jpg'
+import backgroundImg5 from '../assets/Images/random bg img/coding bg5.jpg'
+import backgroundImg6 from '../assets/Images/random bg img/coding bg6.jpeg'
+import backgroundImg7 from '../assets/Images/random bg img/coding bg7.jpg'
+import backgroundImg8 from '../assets/Images/random bg img/coding bg8.jpeg'
+import backgroundImg9 from '../assets/Images/random bg img/coding bg9.jpg'
+import backgroundImg10 from '../assets/Images/random bg img/coding bg10.jpg'
+import backgroundImg111 from '../assets/Images/random bg img/coding bg11.jpg'
+import { useEffect, useState } from "react"
+
+
+const randomImges = [
+    backgroundImg1,
+    backgroundImg2,
+    backgroundImg3,
+    backgroundImg4,
+    backgroundImg5,
+    backgroundImg6,
+    backgroundImg7,
+    backgroundImg8,
+    backgroundImg9,
+    backgroundImg10,
+    backgroundImg111,
+];
+
 function Home() {
+
+  const [backgroundImg, setBackgroundImg] = useState(null);
+
+    useEffect(() => {
+        const bg = randomImges[Math.floor(Math.random() * randomImges.length)]
+        setBackgroundImg(bg);
+    }, [])
+
+
   return (
-    <div>
+    
+<div>
+      {/* background random image */}
+      <div className="mb-20">
+                <div className="w-full h-[450px] md:h-[650px] absolute top-0 left-0 opacity-[0.3] overflow-hidden object-cover mt-14">
+                    <img src={backgroundImg} alt="Background"
+                        className="w-full h-full object-cover"
+                    />
+
+                    <div className="absolute left-0 bottom-0 w-full h-[250px] opacity_layer_bg "></div>
+                </div>
+      </div>
+
+    
+
+      
       {/* Section 1 */}
       <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 text-white">
         {/* Become a Instructor Button */}
@@ -56,14 +109,14 @@ function Home() {
 
         {/* Video */}
         <div className="mx-3 my-7 shadow-[10px_-5px_50px_-5px] shadow-blue-200">
-          <video
+          {/* <video
             className="shadow-[20px_20px_rgba(255,255,255)]"
             muted
             loop
             autoPlay
           >
             <source src={Banner} type="video/mp4" />
-          </video>
+          </video> */}
         </div>
 
         {/* Code Section 1  */}
@@ -158,7 +211,7 @@ function Home() {
             </div>
             <div className="flex flex-col items-start gap-10 lg:w-[40%]">
               <div className="text-[16px]">
-                The modern StudyNotion is the dictates its own terms. Today, to
+                The modern Maverix is the dictates its own terms. Today, to
                 be a competitive specialist requires more than professional
                 skills.
               </div>
